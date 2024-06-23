@@ -1,0 +1,123 @@
+.categories-container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+    gap: 100px;
+    padding-left: 80px;
+}
+
+.filter {
+    position: relative;
+    left: 10px;
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    color: #333;
+}
+
+.category-links {
+    display: flex;
+    gap: 8px;
+    
+}
+
+.category-button {
+    position: relative;
+    font-weight: 600;
+    padding-left: 50px;
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    background-color: white;
+    border: #ccc;
+    border-radius: 50px;
+    color: #333;
+    cursor: pointer;
+}
+
+.category-button:hover {
+    background-color: #e8ebee;
+}
+
+.category-button.selected {
+    /* border: 2px solid #e8ebee; */
+    background-color: #e8ebee;
+    /* border-radius: 50px; */
+}
+
+.following-container select {
+    width: 105px;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    color: #333;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.following-container select:focus {
+    outline: none;
+}
+
+.following-container select:hover {
+    background-color: #e6e6e6;
+}
+
+.following-container {
+    position: relative;
+    padding-left: 50px;
+    display: inline-block;
+    padding: -0px 5px;
+}
+
+.following-container::after {
+    content: '\25BC';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #333;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .categories-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+        padding-left: 20px;
+    }
+
+    .following-container {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .category-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .category-button {
+        padding-left: 20px;
+    }
+
+    .filter {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
