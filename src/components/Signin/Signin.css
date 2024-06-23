@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    height: 80vh;
+}
+
+/* .side-image {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 00px;
+}
+
+.side-image img {
+    width: 2000%;
+    height: 663px;
+} */
+
+.login-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #212529;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    background-color: #ffffff;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Styling for input fields */
+form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form button[type="submit"] {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 24px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+form button[type="submit"]:hover {
+    background-color: #333333;
+}
+
+.or-divider {
+    text-align: center;
+    padding-bottom: 20px;
+    color: #6c757d;
+    margin: 1rem 0;
+    font-size: 0.875rem;
+}
+
+.Toastify__toast {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    font-size: 1rem !important;
+}
+
+.Toastify__toast--success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.Toastify__toast-body {
+    display: flex;
+    align-items: center;
+}
+
+.Toastify__progress-bar {
+    background-color: #ffffff !important;
+}
