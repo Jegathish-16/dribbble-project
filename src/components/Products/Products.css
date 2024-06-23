@@ -1,0 +1,255 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    padding-left: 85px;
+}
+
+.product-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: visible;
+    transition: transform 0.3s ease;
+    width: 320px;
+    height: 320px;
+    cursor: pointer;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    padding: 10px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-image:hover .product-overlay {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.overlay-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.product-name h2 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-image:hover .product-name,
+.product-image:hover .product-actions {
+    opacity: 1;
+}
+
+.action-button {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.action-icon {
+    width: 20px;
+    height: 20px;
+    fill: #9e9ea7;
+}
+
+.product-details {
+    padding: 15px;
+}
+
+.studio-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.user-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.studio-name h2 {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.batch-option {
+    padding: 3px 6px;
+    font-size: 8px;
+    background-color: #f0f0f0;
+    color: #666;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    margin-left: 75px;
+}
+
+.like-count {
+    font-size: 10px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.watch-shot {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.watch-time {
+    font-size: 10px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.shot-icon {
+    width: 20px;
+    height: 20px;
+    fill: #9e9ea7;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    position: relative;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.product-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+/* .product-info strong{
+
+} */
+
+.modal-content .product-info {
+    margin-bottom: 15px;
+}
+
+
+.main-search {
+    width: 220px;
+    position: relative;
+    bottom: 170px;
+    left: 75%;
+    display: flex;
+    align-items: center;
+    background: #e6e6e6;
+    padding: 5px 15px;
+    border-radius: 50px;
+    /* box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1); */
+    margin-right: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 20px 10px 30px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    background: #e6e6e6;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.action-button.liked {
+    background-color: red;
+}
+
+.like.liked .shot-icon {
+    fill: red;
+}
+
