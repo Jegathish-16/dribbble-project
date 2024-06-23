@@ -31,6 +31,8 @@ const Products = ({ selectedCategory }) => {
         setFilteredData(filteredProducts);
     }, [selectedCategory]);
 
+    console.log(search)
+
     const handleInputSearch = (e) => {
         setSearch(e.target.value);
         if (e.target.value === "") {

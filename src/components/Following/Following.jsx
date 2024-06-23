@@ -16,6 +16,8 @@ function Following({ onSelectCategory, selectedCategory }) {
         onSelectCategory(category);
         setShowDropdown(false);
     };
+
+    console.log(showDropdown)
     
 
     return (
