@@ -1,24 +1,35 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(
-        !!localStorage.getItem('loggedInUser')
-    );
+    const [user, setUser] = useState(null);
 
-    const login = (user) => {
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        setIsLoggedIn(true);
+    useEffect(() => {
+        const storedUser = localStorage.getItem('username');
+        if (storedUser) {
+            setUser({ username: storedUser });
+        }
+    }, []);
+
+    const login = (userInfo) => {
+        setUser(userInfo);
+        const storedLikedProducts = JSON.parse(localStorage.getItem(`likedProducts_${userInfo.username}`)) || {};
+        setLikedProducts(storedLikedProducts);
+        localStorage.setItem('username', userInfo.username);
     };
 
     const logout = () => {
-        localStorage.removeItem('loggedInUser');
-        setIsLoggedIn(false);
+        if (user) {
+            setUser(null);
+            localStorage.removeItem('username');
+        }
     };
 
+    const [likedProducts, setLikedProducts] = useState({});
+
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+        <AuthContext.Provider value={{ user, login, logout, isLoggedIn: !!user, likedProducts, setLikedProducts }}>
             {children}
         </AuthContext.Provider>
     );
