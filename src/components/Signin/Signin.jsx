@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import usersData from './users.json';
 import './Signin.css';
-// import img from './css1.png';
 import AuthContext from '../AuthContext';
 
-function Signin() {
+function Signin({ onLoginSuccess }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -16,27 +14,24 @@ function Signin() {
 
     const handleLogin = (e) => {
         e.preventDefault();
-
-        const user = usersData.users.find(user => user.username === username && user.password === password);
-        if (user) {
-            console.log('Login successful:', user);
-            login(user);
+        if (username.trim() !== '' && password.trim() !== '') {
+            console.log('Login successful for username:', username);
+            login({ username: username });
             toast.success('Login successful!');
+            localStorage.setItem('username', username);
             setTimeout(() => {
                 navigate('/');
+                onLoginSuccess();
             }, 1500);
         } else {
             console.log('Login failed for username:', username);
-            alert('Invalid username or password');
+            alert('Please enter valid username and password');
         }
     };
 
     return (
         <div className="container">
             <ToastContainer />
-            {/* <div className="side-image">
-                <img src={img} alt="Side Graphic" />
-            </div> */}
             <div className="login-container">
                 <h2>Login to Dribbble</h2>
                 <form onSubmit={handleLogin}>
