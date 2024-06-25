@@ -1,0 +1,33 @@
+.suggestions-container {
+    position: absolute;
+    background: #f6f6f6;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    z-index: 1000;
+    top: 60px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    scrollbar-width: none; /* Firefox */
+}
+
+.suggestions-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.suggestion-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.suggestion-item:hover {
+    background: #cacfd5;
+    color: white;
+    transform: translateX(5px);
+    border-radius: 8px;
+}

@@ -4,6 +4,7 @@ import { HiSearch } from 'react-icons/hi';
 import './Products.css';
 import AuthContext from '../AuthContext';
 import { toast } from 'react-toastify';
+import SearchSuggestions from '../SearchSuggestions/SearchSuggestions'
 
 const Products = ({ selectedCategory }) => {
     const { user, likedProducts, setLikedProducts } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Products = ({ selectedCategory }) => {
     const [search, setSearch] = useState("");
     const [filteredData, setFilteredData] = useState(productObject);
     const [filterDataBasedProduct, setFilterDataBasedProduct] = useState(productObject);
+    const [suggestions, setSuggestions] = useState([]);
 
     const openModal = (product) => {
         setSelectedProduct(product);
@@ -32,24 +34,32 @@ const Products = ({ selectedCategory }) => {
         setFilterDataBasedProduct(filteredProducts);
         setFilteredData(filteredProducts);
     }, [selectedCategory]);
-    console.log(search)
 
     const handleInputSearch = (e) => {
-        setSearch(e.target.value);
-        if (e.target.value === "") {
+        const value = e.target.value;
+        setSearch(value);
+        if (value === "") {
             setFilteredData(filterDataBasedProduct);
+            setSuggestions([]);
         } else {
             const filterProduct = filterDataBasedProduct.filter((data) => {
                 if (
-                    data.prName.toLowerCase().includes(e.target.value.trim().toLowerCase()) ||
-                    data.category.toLowerCase().includes(e.target.value.trim().toLowerCase())
+                    data.prName.toLowerCase().includes(value.trim().toLowerCase()) ||
+                    data.category.toLowerCase().includes(value.trim().toLowerCase())
                 ) {
                     return data;
                 }
                 return null;
             });
             setFilteredData(filterProduct);
+            setSuggestions(filterProduct);
         }
+    };
+
+    const handleSuggestionSelect = (suggestion) => {
+        setSearch(suggestion.prName);
+        setFilteredData([suggestion]);
+        setSuggestions([]);
     };
 
     const toggleLike = (index) => {
@@ -83,10 +93,17 @@ const Products = ({ selectedCategory }) => {
                 <HiSearch className='search-icon' />
                 <input 
                     type="text" 
+                    value={search}
                     onChange={handleInputSearch} 
                     placeholder="Search" 
                     className="search-input"
                 />
+                {suggestions.length > 0 && (
+                    <SearchSuggestions 
+                        suggestions={suggestions} 
+                        onSelectSuggestion={handleSuggestionSelect}
+                    />
+                )}
             </div>
 
             <div className="container">
